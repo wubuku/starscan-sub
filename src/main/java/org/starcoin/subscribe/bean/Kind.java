@@ -5,6 +5,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Kind {
 
     public static final Kind PendingTxn = new Kind(2, "newPendingTransactions");
+
+    public static final Kind Events = new Kind(1, "events");
+
     private int type;
     @JsonProperty("type_name")
     private String typeName;

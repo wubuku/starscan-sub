@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.starcoin.subscribe.handler.ElasticSearchHandler;
+import org.starcoin.subscribe.handler.EventsSubscribeHandler;
 import org.starcoin.subscribe.handler.SubscribeHandler;
 
 @SpringBootApplication
@@ -38,7 +39,8 @@ public class SubscribeApplication implements CommandLineRunner {
         LOG.info("EXECUTING : command line runner");
         LOG.info("es url is " + esUrl);
         for (String seed : seeds) {
-            Thread handlerThread = new Thread(new SubscribeHandler(seed, network, elasticSearchHandler));
+            Thread handlerThread = new Thread(new EventsSubscribeHandler(seed, network));
+            //Thread handlerThread = new Thread(new SubscribeHandler(seed, network, elasticSearchHandler));
             handlerThread.start();
         }
     }

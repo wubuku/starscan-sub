@@ -24,6 +24,7 @@ public class PendingTxnCleanHandle extends QuartzJobBean {
 
     @Override
     protected void executeInternal(JobExecutionContext jobExecutionContext) throws JobExecutionException {
+        if (true) return;//TEST
         Result<PendingTransaction> result = elasticSearchHandler.getPendingTransaction(network, HANDLE_COUNT);
         List<PendingTransaction> txns = result.getContents();
         if (txns.size() > 0) {
