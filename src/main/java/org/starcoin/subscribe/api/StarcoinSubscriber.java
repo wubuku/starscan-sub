@@ -34,7 +34,7 @@ public class StarcoinSubscriber {
 
     public Flowable<EventNotification> newEventsNotifications() {
         Map<String, Object> eventFilter = new HashMap<>();
-        eventFilter.put("from_block", 0);
+        //eventFilter.put("from_block", 0);
         return web3jService.subscribe(
                 new Request<>(
                         "starcoin_subscribe",
